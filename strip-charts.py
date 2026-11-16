@@ -1,0 +1,28 @@
+# Removes the language pie chart and the radar chart from the generated 3D calendar,
+# plus the star and fork counters, so only the calendar and the contribution count remain.
+import re
+import sys
+
+PATH = "profile-3d-contrib/profile-customize.svg"
+TARGETS = ('<g transform="translate(40, 520)">', '<g transform="translate(980, 284.5)">')
+
+svg = open(PATH, encoding="utf-8").read()
+for start_tag in TARGETS:
+    start = svg.find(start_tag)
+    if start < 0:
+        continue
+    depth, pos = 0, start
+    for m in re.finditer(r"<g[\s>]|</g>", svg[start:]):
+        depth += -1 if m.group() == "</g>" else 1
+        if depth == 0:
+            pos = start + m.end()
+            break
+    svg = svg[:start] + svg[pos:]
+# Stars and forks only count public repositories, so they would always show 0
+star = svg.find('<g transform="translate(608, 802), scale(2)">')
+date = svg.find('<text style="font-size: 16px;"', star)
+if star >= 0 and date > star:
+    svg = svg[:star] + svg[date:]
+
+open(PATH, "w", encoding="utf-8").write(svg)
+print("charts and counters removed")

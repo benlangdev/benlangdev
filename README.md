@@ -11,4 +11,4 @@ I build websites and software and keep them running, for businesses around Nurem
 
 ## What I build with
 
-<img src="https://skillicons.dev/icons?i=angular,ts,js,html,css,tailwind,nodejs,express,java,spring,py,fastapi,cs,c,cpp,postgres,mysql,redis,rabbitmq,docker,kubernetes,linux,ubuntu,debian,figma&perline=9" alt="Angular, TypeScript, JavaScript, HTML, CSS, Tailwind, Node.js, Express, Java, Spring, Python, FastAPI, C#, C, C++, PostgreSQL, MySQL, Redis, RabbitMQ, Docker, Kubernetes, Linux, Ubuntu, Debian, Figma">
+<img src="https://skillicons.dev/icons?i=angular,ts,html,css,nodejs,java,py,c,postgres,docker,linux&perline=11" alt="Angular, TypeScript, HTML, CSS, Node.js, Java, Python, C, PostgreSQL, Docker, Linux">

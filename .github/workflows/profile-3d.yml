@@ -19,6 +19,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: ${{ github.repository_owner }}
           SETTING_JSON: profile-3d-settings.json
+      - name: Remove empty charts
+        run: python3 strip-charts.py
       - name: Commit & Push
         run: |
           git config user.name github-actions
