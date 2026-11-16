@@ -1,10 +1,10 @@
-# Removes the language pie chart and the radar chart from the generated 3D calendar,
-# plus the star and fork counters, so only the calendar and the contribution count remain.
+# Removes the star and fork counters from the generated 3D calendar. They only count public
+# repositories and would always show 0. Add group start tags to TARGETS to remove more parts.
 import re
 import sys
 
 PATH = "profile-3d-contrib/profile-customize.svg"
-TARGETS = ('<g transform="translate(40, 520)">', '<g transform="translate(980, 284.5)">')
+TARGETS = ()  # pie and radar stay now that the token sees private repositories
 
 svg = open(PATH, encoding="utf-8").read()
 for start_tag in TARGETS:
@@ -25,4 +25,4 @@ if star >= 0 and date > star:
     svg = svg[:star] + svg[date:]
 
 open(PATH, "w", encoding="utf-8").write(svg)
-print("charts and counters removed")
+print("counters removed")
